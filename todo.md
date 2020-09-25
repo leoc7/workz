@@ -16,12 +16,12 @@
 - Título
 - Descrição
 
-[ ] Create
-[ ] Read
+[X] Create
+[X] Read
 [ ] Update
-[ ] Delete
+[X] Delete
 
-[ ] Adicionar Item apartir da lista
+[X] Adicionar Item apartir da lista
 [ ] Arrastar lista para trocar de ordem
 
 
@@ -34,8 +34,8 @@
 - Atualizado em
 - Feito?
 
-[ ] Create
-[ ] Read
+[x] Create
+[x] Read
 [ ] Update
 [ ] Delete
 

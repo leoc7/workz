@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose';
 
-interface IBoard extends Document {
+export interface IBoard extends Document {
     title: string;
     description?: string;
 }
