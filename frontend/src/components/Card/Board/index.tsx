@@ -2,16 +2,19 @@ import React from 'react';
 import { Container, Header, Content, Footer } from './styles';
 import { MdMoreHoriz, MdArrowForward } from 'react-icons/md';
 
-const Board: React.FC = () => {
+export interface IBoardProps {
+    title: string;
+    description?: string;
+}
+
+const Board: React.FC<IBoardProps> = ({ title, description }) => {
     return (
         <Container>
             <Header>
-                <h1>Afazeres domésticos</h1>
+                <h1>{title}</h1>
                 <MdMoreHoriz size={24} />
             </Header>
-            <Content>
-                Aqui reuno todas as tarefas que devo realizar em casa...
-            </Content>
+            <Content>{description}</Content>
             <Footer>
                 <small>Editado há 1 dia</small>
                 <a>

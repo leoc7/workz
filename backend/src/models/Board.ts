@@ -8,7 +8,10 @@ export interface IBoard extends Document {
 const BoardSchema = new Schema(
     {
         title: String,
-        description: String,
+        description: {
+            type: String,
+            required: false,
+        },
     },
     {
         timestamps: true,

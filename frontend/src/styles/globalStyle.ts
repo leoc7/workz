@@ -25,6 +25,9 @@ export default createGlobalStyle`
         --gray1: #666;
         --gray2: #999;
         --white0: #fff;
+        --lightred: rgba(229, 3, 3, 0.39);
+        --lightyellow: rgba(211, 229, 3, 0.39);
+        --lightgreen: rgba(3, 229, 66, .39);
     }
 
     @keyframes shimmer {

@@ -7,6 +7,7 @@ export const Container = styled.div`
     width: 300px;
     height: 150px;
     padding: 15px 20px;
+    margin: 0 20px;
 `;
 
 export const Header = styled.div`
@@ -41,7 +42,7 @@ export const Footer = styled.div`
         font-size: 14px;
         display: flex;
         align-items: center;
-        transition: all .2s ease;
+        transition: all 0.2s ease;
         cursor: pointer;
 
         & svg {
