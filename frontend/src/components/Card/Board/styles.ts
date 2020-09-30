@@ -8,6 +8,8 @@ export const Container = styled.div`
     height: 150px;
     padding: 15px 20px;
     margin: 0 20px;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Header = styled.div`
@@ -30,6 +32,7 @@ export const Footer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transform: translateY(100%);
 
     & small {
         color: var(--gray2);
@@ -44,6 +47,7 @@ export const Footer = styled.div`
         align-items: center;
         transition: all 0.2s ease;
         cursor: pointer;
+        text-decoration: none;
 
         & svg {
             margin-left: 5px;

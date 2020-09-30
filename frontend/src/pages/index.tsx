@@ -1,18 +1,14 @@
 import React from 'react';
-import Board, { IBoardProps } from '../components/Card/Board';
+import Board, { IBoardProps as IBoard } from '../components/Card/Board';
 import { Container, BoardList } from '../styles/pages';
-import { GetStaticProps } from 'next';
 import api from '../services/api';
-
-interface IBoard extends IBoardProps {
-    _id: string;
-}
+import { NextPage } from 'next';
 
 interface IProps {
     boards: IBoard[];
 }
 
-const Boards: React.FC<IProps> = ({ boards }) => {
+const Boards: NextPage<IProps> = ({ boards }) => {
     return (
         <Container>
             <BoardList>
@@ -24,14 +20,12 @@ const Boards: React.FC<IProps> = ({ boards }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps = async context => {
+Boards.getInitialProps = async () => {
     const { data } = await api.get('/boards');
     const boards: IBoard[] = data;
 
     return {
-        props: {
-            boards,
-        },
+        boards,
     };
 };
 

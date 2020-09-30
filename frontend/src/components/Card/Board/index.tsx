@@ -3,11 +3,12 @@ import { Container, Header, Content, Footer } from './styles';
 import { MdMoreHoriz, MdArrowForward } from 'react-icons/md';
 
 export interface IBoardProps {
+    _id: string;
     title: string;
     description?: string;
 }
 
-const Board: React.FC<IBoardProps> = ({ title, description }) => {
+const Board: React.FC<IBoardProps> = ({ _id, title, description }) => {
     return (
         <Container>
             <Header>
@@ -17,7 +18,7 @@ const Board: React.FC<IBoardProps> = ({ title, description }) => {
             <Content>{description}</Content>
             <Footer>
                 <small>Editado há 1 dia</small>
-                <a>
+                <a href={`/board/${_id}`}>
                     ENTRAR <MdArrowForward size={20} />
                 </a>
             </Footer>

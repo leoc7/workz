@@ -5,7 +5,6 @@ interface IPriorityProps {
 }
 
 export const Container = styled.div<IPriorityProps>`
-    width: 260px;
     background: var(--white0);
     padding: 15px 30px;
     border-radius: 8px;

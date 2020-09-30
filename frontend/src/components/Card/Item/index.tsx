@@ -6,6 +6,7 @@ export interface IItemProps {
     title: string;
     description: string;
     priority: number;
+    done: boolean;
 }
 
 function getPriorityText(priority: number) {

@@ -1,34 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/dist/client/router';
-import List, { IListProps } from '../../components/List';
+import React, { useState } from 'react';
+import { NextPage } from 'next';
+import List, { IListProps as IList } from '../../components/List';
 import { Container, ListsList } from '../../styles/pages/board/[id]';
 import api from '../../services/api';
+import Modal from '../../components/Modal';
 
-interface IProps {}
+interface IProps {
+    lists: IList[];
+}
 
-const Board: React.FC<IProps> = () => {
-    const router = useRouter();
-    const [lists, setLists] = useState<IListProps[]>([]);
-
-    useEffect(() => {
-        async function getData() {
-            const { data } = await api.get(`/lists/${router.query.id}`);
-
-            const lists: IListProps[] = data;
-            setLists(lists);
-        }
-        getData();
-    }, []);
+const Board: NextPage<IProps> = ({ lists }) => {
+    const [isCreateItemModalVisible, setCreateItemModalVisible] = useState(
+        false
+    );
 
     return (
-        <Container>
-            <ListsList>
-                {lists.map(list => (
-                    <List key={list._id} {...list}></List>
-                ))}
-            </ListsList>
-        </Container>
+        <>
+            <Modal
+                visible={isCreateItemModalVisible}
+                onClose={() => setCreateItemModalVisible(false)}></Modal>
+            <Container>
+                <ListsList>
+                    {lists.map(list => (
+                        <List
+                            onCreateButtonClick={() => {
+                                setCreateItemModalVisible(true);
+                            }}
+                            key={list._id}
+                            {...list}></List>
+                    ))}
+                </ListsList>
+            </Container>
+        </>
     );
+};
+
+Board.getInitialProps = async ({ query }) => {
+    const { data } = await api.get(`/lists/${query.id}`);
+
+    const lists: IList[] = data;
+
+    return { lists };
 };
 
 export default Board;

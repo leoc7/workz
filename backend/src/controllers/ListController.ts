@@ -3,6 +3,7 @@ import List from '../models/List';
 
 class ListController {
     public async index(req: Request, res: Response): Promise<Response> {
+        console.log(req.params)
         const lists = await List.find({
             board: req.params.boardId,
         }).populate('items');
