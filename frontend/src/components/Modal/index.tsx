@@ -1,16 +1,38 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, Header, Content, Footer } from './styles';
+import { AnimatePresence } from 'framer-motion';
+import { MdClose } from 'react-icons/md';
 
 interface IProps {
+    title?: string;
     visible: boolean;
     onClose(): void;
 }
 
-const Modal: React.FC<IProps> = ({ visible, onClose }) => {
+const Modal: React.FC<IProps> = ({ children, title, visible, onClose }) => {
     return (
-        <Container visible={visible}>
-            <div>a</div>
-        </Container>
+        <AnimatePresence>
+            <Container
+                variants={{
+                    visible: {
+                        opacity: 1,
+                        display: 'block',
+                    },
+                    hidden: {
+                        opacity: 0,
+                        transitionEnd: {
+                            display: 'none',
+                        },
+                    },
+                }}
+                initial='hidden'
+                animate={visible ? 'visible' : 'hidden'}>
+                <Header>
+                    {title} <MdClose onClick={onClose} />
+                </Header>
+                <Content>{children}</Content>
+            </Container>
+        </AnimatePresence>
     );
 };
 

@@ -13,7 +13,10 @@ const ItemSchema = new Schema(
     {
         priority: Number,
         title: String,
-        description: String,
+        description: {
+            type: String,
+            required: false,
+        },
         done: {
             type: Boolean,
             default: false,

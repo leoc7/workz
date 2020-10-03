@@ -24,6 +24,7 @@ export default createGlobalStyle`
         --gray0: #333;
         --gray1: #666;
         --gray2: #999;
+        --gray3: #e1e1e1;
         --white0: #fff;
         --lightred: rgba(229, 3, 3, 0.39);
         --lightyellow: rgba(211, 229, 3, 0.39);
