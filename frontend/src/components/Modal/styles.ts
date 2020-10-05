@@ -10,7 +10,6 @@ export const Container = styled(motion.div)`
     background: var(--white0);
     border-radius: 8px;
     width: 400px;
-    height: 400px;
     padding: 30px 20px;
 `;
 
@@ -24,7 +23,7 @@ export const Header = styled.div`
 
     & svg {
         color: var(--gray0);
-        transition: all .2s ease;
+        transition: all 0.2s ease;
         font-size: 24px;
         cursor: pointer;
 
