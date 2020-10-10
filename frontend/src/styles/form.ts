@@ -66,7 +66,6 @@ export const Button = styled.button`
     font-weight: 700;
     transition: all .2s ease;
     cursor: pointer;
-
     &:hover {
         background: var(--main2);
     }

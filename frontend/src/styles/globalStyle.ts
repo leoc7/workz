@@ -30,14 +30,4 @@ export default createGlobalStyle`
         --lightyellow: rgba(211, 229, 3, 0.39);
         --lightgreen: rgba(3, 229, 66, .39);
     }
-
-    @keyframes shimmer {
-        0% {
-            background-position: -468px 0;
-        }
-        
-        100% {
-            background-position: 468px 0; 
-        }
-    }    
 `;
